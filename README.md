@@ -58,7 +58,7 @@ source ./devel/setup.bash
 ```
 
 ### Run the receiver to subscribe raw image
-`rosrun compressed-video-transport publisher _image_transport:=raw`
+`rosrun compressed-video-transport receiver _image_transport:=raw`
 
 ### Run the receiver to subscribe compressed image
-`rosrun compressed-video-transport publisher _image_transport:=compressed`
+`rosrun compressed-video-transport receiver _image_transport:=compressed`
