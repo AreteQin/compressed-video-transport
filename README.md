@@ -1,5 +1,5 @@
 # compressed-video-transport
-Transport compressed video using ROS image_transport to eliminate latency.
+Transport compressed video using ROS image_transport to reduce latency.
 
 ## Do the following three steps on both publisher and receiver
 
@@ -27,7 +27,9 @@ catkin_make
 ### Do the following steps on the publisher
 
 ### Check the IP address of publisher
-`hostname -I`
+```
+hostname -I
+```
 
 ### Config ROS IP for communication on two machines, if you are using one device, ignore this step
 ```
@@ -35,7 +37,9 @@ export ROS_IP=192.168.2.39 # change the IP according to hostname -I
 export ROS_MASTER_URI=http://192.168.2.39:11311 # to make publisher as ROS master
 ```
 ### Start ROS master
-`roscore`
+```
+roscore
+```
 
 ### open a new terminal and run the publisher
 ```
@@ -48,7 +52,9 @@ rosrun compressed-video-transport publisher
 ## Do the following steps on the receiver machine
 
 ### Check the IP address of receiver
-`hostname -I`
+```
+hostname -I
+```
 
 ### Config ROS IP for communication on two machines, if you are using one device, ignore this step
 ```
@@ -58,7 +64,11 @@ source ./devel/setup.bash
 ```
 
 ### Run the receiver to subscribe raw image
-`rosrun compressed-video-transport receiver _image_transport:=raw`
+```
+rosrun compressed-video-transport receiver _image_transport:=raw
+```
 
 ### Run the receiver to subscribe compressed image
-`rosrun compressed-video-transport receiver _image_transport:=compressed`
+```
+rosrun compressed-video-transport receiver _image_transport:=compressed
+```
