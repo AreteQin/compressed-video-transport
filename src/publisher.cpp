@@ -17,7 +17,7 @@ int main(int argc, char** argv)
 
     //image_transport will publish the video that can be compressed
     image_transport::ImageTransport it(nh);
-    image_transport::Publisher pub_color = it.advertise("/color", 1);
+    image_transport::Publisher pub_color = it.advertise("D435/color", 1);
 
     cv::Mat image, depth;
 

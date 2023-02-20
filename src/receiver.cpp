@@ -41,8 +41,8 @@ public:
 };
 
 int main(int argc, char **argv) {
-    ros::init(argc, argv, "rgbd_receiver");
-    ImageReceiver color("/color");
+    ros::init(argc, argv, "rgb_receiver");
+    ImageReceiver color("D435/color");
     ros::spin();
     return 0;
 }
