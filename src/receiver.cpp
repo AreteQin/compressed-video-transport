@@ -42,7 +42,8 @@ public:
 
 int main(int argc, char **argv) {
     ros::init(argc, argv, "rgb_receiver");
-    ImageReceiver color("D435/color");
+//    ImageReceiver color("D435/color");
+    ImageReceiver color("/dji_osdk_ros/fpv_camera_images");
     ros::spin();
     return 0;
 }
