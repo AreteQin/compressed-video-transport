@@ -18,7 +18,7 @@ int main(int argc, char** argv)
     //image_transport will publish the video that can be compressed
     image_transport::ImageTransport it(nh);
     image_transport::Publisher pub_color = it.advertise("D435/color", 1);
-
+//    ros::Publisher pub_color = nh.advertise<sensor_msgs::Image>("/dji_osdk_ros/fpv_camera_images", 1);
     cv::Mat image, depth;
 
     while (ros::ok()) {
@@ -27,6 +27,8 @@ int main(int argc, char** argv)
             ROS_ERROR_STREAM("Failed to capture image!");
             ros::shutdown();
         }
+//        cv::imshow("pub", image);
+//        cv::waitKey(1);
         pub_color.publish(cv_bridge::CvImage(std_msgs::Header(), "bgr8", image).toImageMsg());
     }
 

@@ -17,8 +17,7 @@ public:
             : it_(nh_) {
         OPENCV_WINDOW = topic_name;
         // Subscrive to input video feed and publish output video feed
-        image_sub_ = it_.subscribe(OPENCV_WINDOW, 1,
-                                   &ImageReceiver::imageCb, this);
+        image_sub_ = it_.subscribe(OPENCV_WINDOW, 1, &ImageReceiver::imageCb, this); // must be like this
         cv::namedWindow(OPENCV_WINDOW);
     }
 
@@ -42,8 +41,8 @@ public:
 
 int main(int argc, char **argv) {
     ros::init(argc, argv, "rgb_receiver");
-//    ImageReceiver color("D435/color");
-    ImageReceiver color("/dji_osdk_ros/fpv_camera_images");
+    ImageReceiver color("D435/color");
+//    ImageReceiver color("/dji_osdk_ros/fpv_camera_images");
     ros::spin();
     return 0;
 }
